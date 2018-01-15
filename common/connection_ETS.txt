@@ -1,0 +1,4 @@
+jdbc:oracle:thin:@//10.7.64.101:1521/
+etsitf1
+CDSREADONLY
+CDSREADONLY
