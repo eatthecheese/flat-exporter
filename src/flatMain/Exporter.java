@@ -131,7 +131,15 @@ public class Exporter {
 						while (rs.next()) {
 					        String row = "";
 					        for (i = 1; i <= columnCount; i++) {
-					            row += rs.getString(i) + ", ";          
+					        	//if (rs.getString(i).contains("Circular")) {
+					        		//row += "\""+ rs.getString(i) + "\",";  
+					        	//} else {
+					        	if (rs.getString(i) != null && rs.getString(i).contains(",")) {
+					        		//System.out.println("We got here");
+					        		row += "\""+ rs.getString(i) + "\",";
+					        	} else {
+					        		row += rs.getString(i) + ","; 
+					        	}         
 					        }
 					        UnitTest.csvOut(arg[ExporterArgs.OUTPUT_FILENAME.exporterArgsNo()],row, "\n");    
 					    }
